@@ -1,4 +1,4 @@
-pipeline{
+pipeline {
 	agent any
 	stages {
 		stage('compile Stage'){
@@ -7,9 +7,9 @@ pipeline{
 			}
 		}
 		
-		stage('Build Stage'){
+		stage('Deployment Stage'){
 			steps {
-					sh 'mvn build'
+					sh 'mvn clean deploy -DmuleDeploy -DskipTests -Dmule.version=4.3.0 -Danypoint.username=praveen_TMC -Danypoint.password=QWERasdf1234 -Denv=Sandbox -Dappname=Jekins-pipeline -Dbusiness=TechMatrix-Sandbox -DvCore=Micro -Dworkers=1'
 			}
 		}
 	}
